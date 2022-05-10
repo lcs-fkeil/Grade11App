@@ -11,7 +11,9 @@ import SwiftUI
 struct LostAndFoundApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ContentView()
+            }
         }
     }
 }

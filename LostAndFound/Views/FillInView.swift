@@ -10,25 +10,12 @@ import SwiftUI
 struct FillInView: View {
     var body: some View {
         ScrollView{
-            Picker(selection: .constant(2),
-                   label: Text("Picker Name"),
-                   content: {
-                
-                Text("Lost").tag(0)
-                Text("Found").tag(1)
-                
-                
-            })
-            .pickerStyle(SegmentedPickerStyle())
-            .padding(20)
+            
             
             TextField("Title",
                       text: .constant(""),
                       prompt: Text("Title"))
                 .padding()
-            
-            AsyncImage(url: URL (string: "https://dummyimages.com/180x150"))
-                .frame(width: 180, height: 150)
             
             HStack {
                 Text("Category")
@@ -54,12 +41,23 @@ struct FillInView: View {
             .padding()
             
             HStack{
-                Text("Date & Time the Object was lost or found")
+                Text("Date the Object was lost")
                     .padding(.horizontal)
                 Spacer()
             }
             
-            TextField("Date and Time the object was lost or found",
+            TextField("Date the object was lost",
+                      text: .constant(""),
+                      prompt: Text("Type something..."))
+                .padding(.horizontal)
+            
+            HStack{
+                Text("Time the Object was lost")
+                    .padding(.horizontal)
+                Spacer()
+            }
+            
+            TextField("Time the object was lost",
                       text: .constant(""),
                       prompt: Text("Type something..."))
                 .padding(.horizontal)
@@ -75,11 +73,14 @@ struct FillInView: View {
                       prompt: Text("Type something..."))
                 .padding(.horizontal)
         }
+        .navigationTitle("New lost item")
     }
 }
 
 struct FillInView_Previews: PreviewProvider {
     static var previews: some View {
+        NavigationView{
         FillInView()
+        }
     }
 }

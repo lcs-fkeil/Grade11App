@@ -11,25 +11,25 @@ struct ContentView: View {
     var body: some View {
         List{
             
-            Section(header: Text("Categories")) {
-                Text("Clothing")
-                Text("Sportsequipment")
-                Text("Electronics")
-                Text("Glasses")
-                Text("School materials")
-                Text("Jewellery")
+            NavigationLink(destination: FillInView()) {
+                Text("+ New")
+            }
+            
+            Section(header: Text("Items")) {
+                Text("Airpods - 10/05/2022")
+                Text("Necklace - 10/05/2022")
+                Text("Laptop charger - 08/05/2022")
+                Text("Glasses - 07/05/2022")
+                Text("Pencil case - 07/05/2022")
+                
             }
         }
-        .navigationTitle("Lost & Found")
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button("New Item") {}
-            }
+        .navigationTitle("Lost items")
             
         }
     }
     
-}
+
 
 
 struct ContentView_Previews: PreviewProvider {
