@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        TabView {
         List{
             
             NavigationLink(destination: FillInView()) {
@@ -25,9 +26,14 @@ struct ContentView: View {
             }
         }
         .navigationTitle("Lost items")
+        .tabItem{
+            Image(systemName: "questionmark.circle.fill")
+            Text("Lost")
+        }
             
         }
     }
+}
     
 
 
