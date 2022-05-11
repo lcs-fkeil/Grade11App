@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct FillInFoundView: View {
+    
+    @State var dateFound = Date.now
+    
+    
+    
     var body: some View {
         ScrollView{
             
@@ -17,36 +22,25 @@ struct FillInFoundView: View {
                       prompt: Text("Title"))
                 .padding()
             
-            
-            
             HStack{
-                Text("Date the Object was found")
-                    .padding(.horizontal)
-                Spacer()
-            }
+                            Text("Date and time the Object was found")
+                                .padding(.horizontal)
+                            Spacer()
+                        }
+
+            DatePicker("please enter a date", selection: $dateFound)
+                .labelsHidden()
             
-            TextField("Date the object was found",
-                      text: .constant(""),
-                      prompt: Text("Type something..."))
-                .padding(.horizontal)
             
-            HStack{
-                Text("Time the Object was found")
-                    .padding(.horizontal)
-                Spacer()
-            }
             
-            TextField("Time the object was found",
-                      text: .constant(""),
-                      prompt: Text("Type something..."))
-                .padding(.horizontal)
+            
             
             HStack{
                 Text("Aditional Notes")
                     .padding(.horizontal)
                 Spacer()
             }
-
+            
             TextField("Any aditional notes",
                       text: .constant(""),
                       prompt: Text("Type something..."))
@@ -65,13 +59,13 @@ struct FillInFoundView: View {
         .navigationTitle("New found item")
         
     }
-    }
+}
 
 
 struct FillInFoundView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-        FillInFoundView()
+            FillInFoundView()
         }
     }
 }

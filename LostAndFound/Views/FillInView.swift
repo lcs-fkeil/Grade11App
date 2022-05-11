@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FillInView: View {
+    
+    @State var dateLost = Date.now
+    
     var body: some View {
         ScrollView{
             
@@ -17,35 +20,17 @@ struct FillInView: View {
                       prompt: Text("Title"))
                 .padding()
             
-           
-            HStack{
-                Text("Date the Object was lost")
-                    .padding(.horizontal)
-                Spacer()
-            }
-            
-            TextField("Date the object was lost",
-                      text: .constant(""),
-                      prompt: Text("Type something..."))
-                .padding(.horizontal)
             
             HStack{
-                Text("Time the Object was lost")
-                    .padding(.horizontal)
-                Spacer()
-            }
-            
-            TextField("Time the object was lost",
-                      text: .constant(""),
-                      prompt: Text("Type something..."))
-                .padding(.horizontal)
-            
-            HStack{
-                Text("Aditional Notes")
-                    .padding(.horizontal)
-                Spacer()
-            }
+                            Text("Date and time the Object was lost")
+                                .padding(.horizontal)
+                            Spacer()
+                        }
 
+            DatePicker("please enter a date", selection: $dateLost)
+                .labelsHidden()
+            
+            
             TextField("Any aditional notes",
                       text: .constant(""),
                       prompt: Text("Type something..."))
@@ -68,7 +53,7 @@ struct FillInView: View {
 struct FillInView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-        FillInView()
+            FillInView()
         }
     }
 }

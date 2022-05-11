@@ -16,7 +16,7 @@ struct FoundView: View {
             NavigationLink(destination: FillInFoundView()) {
                 Text("+ New")
             }
-                        
+            
             Section(header: Text("Items")) {
                 Text("Airpods - 10/05/2022")
                 Text("Necklace - 10/05/2022")

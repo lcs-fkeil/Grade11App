@@ -22,7 +22,7 @@ struct PersonalView: View {
 struct PersonalView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-        PersonalView()
+            PersonalView()
         }
     }
 }

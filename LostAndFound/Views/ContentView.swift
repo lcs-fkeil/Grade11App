@@ -27,12 +27,12 @@ struct ContentView: View {
         }
         .navigationTitle("Lost items")
         
-        }
-            
-        }
+    }
     
+}
 
-    
+
+
 
 
 
