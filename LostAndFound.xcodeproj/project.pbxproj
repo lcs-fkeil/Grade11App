@@ -10,6 +10,7 @@
 		62106661282AA42A004E6C78 /* FoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62106660282AA42A004E6C78 /* FoundView.swift */; };
 		621A6C2027556B850096487C /* FillInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A6C1F27556B850096487C /* FillInView.swift */; };
 		621E1D9C282B6E6D00590A80 /* FillInFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621E1D9B282B6E6D00590A80 /* FillInFoundView.swift */; };
+		621E1DA0282B70EA00590A80 /* PersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621E1D9F282B70EA00590A80 /* PersonalView.swift */; };
 		62A96AD6275560AC00ECA44D /* LostAndFoundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A96AD5275560AC00ECA44D /* LostAndFoundApp.swift */; };
 		62A96AD8275560AC00ECA44D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A96AD7275560AC00ECA44D /* ContentView.swift */; };
 		62A96ADA275560AE00ECA44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62A96AD9275560AE00ECA44D /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		62106660282AA42A004E6C78 /* FoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundView.swift; sourceTree = "<group>"; };
 		621A6C1F27556B850096487C /* FillInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillInView.swift; sourceTree = "<group>"; };
 		621E1D9B282B6E6D00590A80 /* FillInFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillInFoundView.swift; sourceTree = "<group>"; };
+		621E1D9F282B70EA00590A80 /* PersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalView.swift; sourceTree = "<group>"; };
 		62A96AD2275560AC00ECA44D /* LostAndFound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LostAndFound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A96AD5275560AC00ECA44D /* LostAndFoundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostAndFoundApp.swift; sourceTree = "<group>"; };
 		62A96AD7275560AC00ECA44D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				621E1D9B282B6E6D00590A80 /* FillInFoundView.swift */,
 				62A96AD7275560AC00ECA44D /* ContentView.swift */,
 				621A6C1F27556B850096487C /* FillInView.swift */,
+				621E1D9F282B70EA00590A80 /* PersonalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				621E1DA0282B70EA00590A80 /* PersonalView.swift in Sources */,
 				62A96AD8275560AC00ECA44D /* ContentView.swift in Sources */,
 				62106661282AA42A004E6C78 /* FoundView.swift in Sources */,
 				621A6C2027556B850096487C /* FillInView.swift in Sources */,

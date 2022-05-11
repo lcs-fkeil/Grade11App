@@ -23,6 +23,11 @@ struct LostAndFoundApp: App {
                         Image(systemName: "exclamationmark.circle.fill")
                         Text("Found")
                     }
+                PersonalView()
+                    .tabItem{
+                        Image(systemName: "house.fill")
+                        Text("Personal")
+                    }
                 
             }
         }
