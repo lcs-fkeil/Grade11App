@@ -1,21 +1,22 @@
 //
-//  ContentView.swift
+//  FoundView.swift
 //  LostAndFound
 //
-//  Created by Franka Keil on 2021-11-29.
+//  Created by Franka Keil on 2022-05-10.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct FoundView: View {
     var body: some View {
+        
         
         List{
             
-            NavigationLink(destination: FillInView()) {
+            NavigationLink(destination: FillInFoundView()) {
                 Text("+ New")
             }
-            
+                        
             Section(header: Text("Items")) {
                 Text("Airpods - 10/05/2022")
                 Text("Necklace - 10/05/2022")
@@ -25,22 +26,18 @@ struct ContentView: View {
                 
             }
         }
-        .navigationTitle("Lost items")
+        .navigationTitle("Found items")
         
-        }
-            
-        }
+    }
     
-
-    
-
+}
 
 
-struct ContentView_Previews: PreviewProvider {
+
+struct FoundView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ContentView()
-            
+            FoundView()
         }
     }
 }

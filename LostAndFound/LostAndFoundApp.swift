@@ -11,8 +11,19 @@ import SwiftUI
 struct LostAndFoundApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView{
+            TabView{
+                
                 ContentView()
+                    .tabItem{
+                        Image(systemName: "questionmark.circle.fill")
+                        Text("Lost")
+                    }
+                FoundView()
+                    .tabItem{
+                        Image(systemName: "exclamationmark.circle.fill")
+                        Text("Found")
+                    }
+                
             }
         }
     }

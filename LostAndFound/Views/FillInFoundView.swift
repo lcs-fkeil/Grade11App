@@ -1,13 +1,13 @@
 //
-//  FillInView.swift
+//  FillInFoundView.swift
 //  LostAndFound
 //
-//  Created by Franka Keil on 2021-11-29.
+//  Created by Franka Keil on 2022-05-11.
 //
 
 import SwiftUI
 
-struct FillInView: View {
+struct FillInFoundView: View {
     var body: some View {
         ScrollView{
             
@@ -17,25 +17,26 @@ struct FillInView: View {
                       prompt: Text("Title"))
                 .padding()
             
-           
+            
+            
             HStack{
-                Text("Date the Object was lost")
+                Text("Date the Object was found")
                     .padding(.horizontal)
                 Spacer()
             }
             
-            TextField("Date the object was lost",
+            TextField("Date the object was found",
                       text: .constant(""),
                       prompt: Text("Type something..."))
                 .padding(.horizontal)
             
             HStack{
-                Text("Time the Object was lost")
+                Text("Time the Object was found")
                     .padding(.horizontal)
                 Spacer()
             }
             
-            TextField("Time the object was lost",
+            TextField("Time the object was found",
                       text: .constant(""),
                       prompt: Text("Type something..."))
                 .padding(.horizontal)
@@ -61,14 +62,16 @@ struct FillInView: View {
                 .padding()
             
         }
-        .navigationTitle("New lost item")
+        .navigationTitle("New found item")
+        
     }
-}
+    }
 
-struct FillInView_Previews: PreviewProvider {
+
+struct FillInFoundView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-        FillInView()
+        FillInFoundView()
         }
     }
 }
