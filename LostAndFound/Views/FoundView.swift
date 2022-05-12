@@ -9,18 +9,36 @@ import SwiftUI
 
 struct FoundView: View {
     
+    // MARK: Stored properties
+    
     @Binding var items: [Item]
+    
+    @State var searchText = ""
     
     @State var isAddItemShowing = false
     
     
+    // MARK: Computed properties
     
+    var filteredListOfItems: [Item] {
+        
+        if searchText.isEmpty{
+            return items
+        } else {
+            return items
+                .filter { currentItem in
+                    
+                    return currentItem.title.lowercased().contains(searchText.lowercased())
+                    
+                }
+        }
+    }
     
     var body: some View {
         NavigationView{
             
             
-            List(items) { currentItem in
+            List(filteredListOfItems) { currentItem in
                 
                 NavigationLink(destination: {
                     
@@ -28,37 +46,38 @@ struct FoundView: View {
                     
                 }, label: {
                     
-                Text(currentItem.title)
-                
-            })
+                    Text(currentItem.title)
+                    
+                })
+                    
+            }
+            .searchable(text: $searchText)
             .navigationTitle("Found items")
             .toolbar {
-                        
-                        Button(action: {
-                            
-                            // Show the add team view by setting the boolean to true
-                            isAddItemShowing = true
-                            
-                        }, label: {
-                            
-                            Text("Add New Item")
-                            
-                        })
-                        
-                        
-                    }
+                
+                Button(action: {
                     
-                    .sheet(isPresented: $isAddItemShowing) {
-                        FillInFoundView(items: $items,
-                                        isAddItemShowing: $isAddItemShowing)
-                    }
-        }
-   
+                    // Show the add team view by setting the boolean to true
+                    isAddItemShowing = true
+                    
+                }, label: {
+                    
+                    Text("Add New Item")
+                    
+                })
+                
+                
+            }
         
+            .sheet(isPresented: $isAddItemShowing) {
+                FillInFoundView(items: $items,
+                                isAddItemShowing: $isAddItemShowing)
+            }
+            
+            
+        }
         
     }
-    
-}
 }
 
 
