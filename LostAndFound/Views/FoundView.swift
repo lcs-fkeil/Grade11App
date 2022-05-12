@@ -21,9 +21,16 @@ struct FoundView: View {
             
             
             List(items) { currentItem in
+                
+                NavigationLink(destination: {
+                    
+                    DetailView(details: currentItem)
+                    
+                }, label: {
+                    
                 Text(currentItem.title)
                 
-            }
+            })
             .navigationTitle("Found items")
             .toolbar {
                         
@@ -52,7 +59,7 @@ struct FoundView: View {
     }
     
 }
-
+}
 
 
 

@@ -21,13 +21,7 @@ struct FillInFoundView: View {
     
     @State var newItemNotes = ""
     
-    var formattedDateAndTimeFound: String{
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        
-        return formatter.string(from: dateAndTimeFound)
-    }
+    
     
     
     var body: some View {
