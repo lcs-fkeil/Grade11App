@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FillInFoundView: View {
     
-    @State var dateFound = Date.now
+    @State var dateAndTimeFound = Date()
     
     @Binding var items: [Item]
     
@@ -20,6 +20,14 @@ struct FillInFoundView: View {
     @State var newItemDate = Date.now
     
     @State var newItemNotes = ""
+    
+    var formattedDateAndTimeFound: String{
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        
+        return formatter.string(from: dateAndTimeFound)
+    }
     
     
     var body: some View {
@@ -37,7 +45,8 @@ struct FillInFoundView: View {
                 Spacer()
             }
             
-            DatePicker("please enter a date", selection: $dateFound)
+            DatePicker("please enter a date",
+                       selection: $dateAndTimeFound)
                 .labelsHidden()
             
             
@@ -51,18 +60,11 @@ struct FillInFoundView: View {
             }
             
             TextField("Any aditional notes",
-                      text: .constant(""),
+                      text: $newItemNotes,
                       prompt: Text("Type something..."))
                 .padding(.horizontal)
             
             
-            Button(action: {
-                print("Button was pressed")
-            }, label: {
-                Text("Add")
-            })
-                .buttonStyle(.bordered)
-                .padding()
             
         }
         .navigationTitle("New found item")
@@ -72,6 +74,13 @@ struct FillInFoundView: View {
                 Button(action: {
                     
                     isAddItemShowing = false
+                    
+                    let newId = items.count + 1
+                    
+                    let newItem = Item(id: newId,
+                                       title: newItemTitle,
+                                       date: dateAndTimeFound,
+                                       notes: newItemNotes)
                     
                     
                 }, label: {
