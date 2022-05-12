@@ -11,14 +11,14 @@ struct DetailView: View {
     
     let details: Item
     
-    @State var dateAndTimeFound = Date()
+   
     
     var formattedDateAndTimeFound: String{
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
         
-        return formatter.string(from: dateAndTimeFound)
+        return formatter.string(from: details.date)
     }
     
     var body: some View {

@@ -25,62 +25,69 @@ struct FillInFoundView: View {
     
     
     var body: some View {
-        ScrollView{
+        
+        
+        NavigationView {
             
-            
-            TextField("Enter a Title",
-                      text: $newItemTitle,
-                      prompt: Text("Enter a Title"))
-                .padding()
-            
-            HStack{
-                Text("Date and time the Object was found")
-                    .padding(.horizontal)
-                Spacer()
-            }
-            
-            DatePicker("please enter a date",
-                       selection: $dateAndTimeFound)
-                .labelsHidden()
-            
-            
-            
-            
-            
-            HStack{
-                Text("Aditional Notes")
-                    .padding(.horizontal)
-                Spacer()
-            }
-            
-            TextField("Any aditional notes",
-                      text: $newItemNotes,
-                      prompt: Text("Type something..."))
-                .padding(.horizontal)
-            
-            
-            
-        }
-        .navigationTitle("New found item")
-        .toolbar{
-            ToolbarItem(placement: .confirmationAction) {
+            ScrollView{
                 
-                Button(action: {
+                
+                TextField("Enter a Title",
+                          text: $newItemTitle,
+                          prompt: Text("Enter a Title"))
+                    .padding()
+                
+                HStack{
+                    Text("Date and time the Object was found")
+                        .padding(.horizontal)
+                    Spacer()
+                }
+                
+                DatePicker("please enter a date",
+                           selection: $dateAndTimeFound)
+                    .labelsHidden()
+                
+                
+                
+                
+                
+                HStack{
+                    Text("Aditional Notes")
+                        .padding(.horizontal)
+                    Spacer()
+                }
+                
+                TextField("Any aditional notes",
+                          text: $newItemNotes,
+                          prompt: Text("Type something..."))
+                    .padding(.horizontal)
+                
+                
+                
+            }
+            .navigationTitle("New found item")
+            .toolbar{
+                ToolbarItem(placement: .confirmationAction) {
                     
-                    isAddItemShowing = false
-                    
-                    let newId = items.count + 1
-                    
-                    let newItem = Item(id: newId,
-                                       title: newItemTitle,
-                                       date: dateAndTimeFound,
-                                       notes: newItemNotes)
-                    
-                    
-                }, label: {
-                    Text("Add")
-            })
-            
+                    Button(action: {
+                        
+                        isAddItemShowing = false
+                        
+                        let newId = items.count + 1
+                        
+                        let newItem = Item(id: newId,
+                                           title: newItemTitle,
+                                           date: dateAndTimeFound,
+                                           notes: newItemNotes)
+                        
+                        items.append(newItem)
+                        
+                        
+                    }, label: {
+                        Text("Add")
+                })
+                
+                }
             }
         }
         
