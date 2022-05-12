@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
+        NavigationView{
         List{
             
             NavigationLink(destination: FillInView()) {
@@ -28,7 +28,7 @@ struct ContentView: View {
         .navigationTitle("Lost items")
         
     }
-    
+    }
 }
 
 

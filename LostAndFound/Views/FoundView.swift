@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct FoundView: View {
+    
+    @State var isAddItemShowing = false
+    
+    
+    
     var body: some View {
-        
+        NavigationView{
         
         List{
             
@@ -27,10 +32,32 @@ struct FoundView: View {
             }
         }
         .navigationTitle("Found items")
+        .toolbar {
+            
+            Button(action: {
+                
+                // Show the add team view by setting the boolean to true
+                isAddItemShowing = true
+                
+            }, label: {
+                
+                Text("Add New Item")
+                
+            })
+                
+                
+            }
+        
+        .sheet(isPresented: $isAddItemShowing) {
+            FillInFoundView()
+        }
+        
+        }
         
     }
-    
 }
+    
+
 
 
 

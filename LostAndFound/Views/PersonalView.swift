@@ -9,6 +9,9 @@ import SwiftUI
 
 struct PersonalView: View {
     var body: some View {
+        
+        NavigationView{
+        
         List{
             
             Text("Airpods - 10/05/2022")
@@ -16,6 +19,7 @@ struct PersonalView: View {
             
         }
         .navigationTitle("My items")
+    }
     }
 }
 
