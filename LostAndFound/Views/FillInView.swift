@@ -9,51 +9,88 @@ import SwiftUI
 
 struct FillInView: View {
     
-    @State var dateLost = Date.now
+    
+    @State var dateAndTimeLost = Date()
+    
+    @Binding var lostItems: [LostItem]
+    
+    @Binding var isAddLostItemShowing: Bool
+    
+    @State var newLostItemTitle = ""
+    
+    @State var newLostItemDate = Date.now
+    
+    @State var newLostItemNotes = ""
+    
+    
     
     var body: some View {
-        ScrollView{
+        
+        NavigationView {
             
             
-            TextField("Title",
-                      text: .constant(""),
-                      prompt: Text("Title"))
-                .padding()
-            
-            
-            HStack{
-                            Text("Date and time the Object was lost")
-                                .padding(.horizontal)
-                            Spacer()
-                        }
-
-            DatePicker("please enter a date", selection: $dateLost)
-                .labelsHidden()
-            
-            
-            TextField("Any aditional notes",
-                      text: .constant(""),
-                      prompt: Text("Type something..."))
-                .padding(.horizontal)
-            
-            
-            Button(action: {
-                print("Button was pressed")
-            }, label: {
-                Text("Add")
-            })
-                .buttonStyle(.bordered)
-                .padding()
+            ScrollView{
+                
+                
+                TextField("Title",
+                          text: $newLostItemTitle,
+                          prompt: Text("Enter a Title"))
+                    .padding()
+                
+                
+                HStack{
+                    Text("Date and time the Object was lost")
+                        .padding(.horizontal)
+                    Spacer()
+                }
+                
+                DatePicker("please enter a date",
+                           selection: $dateAndTimeLost)
+                    .labelsHidden()
+                
+                HStack{
+                    Text("Aditional Notes")
+                        .padding(.horizontal)
+                    Spacer()
+                }
+                
+                
+                TextField("Any aditional notes",
+                          text: $newLostItemNotes,
+                          prompt: Text("Type something..."))
+                    .padding(.horizontal)
+                
+                
+                
+            }
+            .navigationTitle("New lost item")
+            .toolbar {
+                ToolbarItem(placement:.confirmationAction) {
+                    
+                    Button(action: {
+                        
+                        isAddLostItemShowing = false
+                        
+                        let newId = lostItems.count + 1
+                        
+                        let newLostItem = LostItem(id: newId, title2: newLostItemTitle, date2: newLostItemDate, notes2: newLostItemNotes)
+                        
+                        lostItems.append(newLostItem)
+                    }, label: {
+                        Text("Add")
+                    })
+                }
+                
+            }
             
         }
-        .navigationTitle("New lost item")
     }
 }
 
 struct FillInView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            FillInView()
+        NavigationView {
+            FillInView(lostItems: .constant(exampleLostItems), isAddLostItemShowing: .constant(true))
         }
     }
 }

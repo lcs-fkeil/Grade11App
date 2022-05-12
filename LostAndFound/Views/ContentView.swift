@@ -11,7 +11,9 @@ struct ContentView: View {
     
     // MARK: Stored properties
     
+    @Binding var lostItems: [LostItem]
     
+    @State var isAddLostItemShowing = false
     
     
     
@@ -19,27 +21,35 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-        List{
-            
-            NavigationLink(destination: FillInView()) {
-                Text("+ New")
-            }
-            
-            Section(header: Text("Items")) {
-                Text("Airpods - 10/05/2022")
-                Text("Necklace - 10/05/2022")
-                Text("Laptop charger - 08/05/2022")
-                Text("Glasses - 07/05/2022")
-                Text("Pencil case - 07/05/2022")
+        
+            List(lostItems) {
+                currentItem in
                 
-            }
+                Text(currentItem.title2)
+            
+            
         }
         .navigationTitle("Lost items")
+        .toolbar {
+            
+            Button(action: {
+                
+                isAddLostItemShowing = true
+            }, label: {
+                
+                Text("Add new Item")
+                
+            })
+        }
+        .sheet(isPresented:
+                $isAddLostItemShowing) {
+            FillInView(lostItems: $lostItems, isAddLostItemShowing: $isAddLostItemShowing)
+        }
         
     }
     }
-}
 
+}
 
 
 
@@ -48,7 +58,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ContentView()
+            ContentView(lostItems: .constant(exampleLostItems))
             
         }
     }

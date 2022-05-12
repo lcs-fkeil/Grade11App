@@ -13,12 +13,14 @@ struct LostAndFoundApp: App {
     
     @State var items: [Item] = exampleItems
     
+    @State var lostItems: [LostItem] = exampleLostItems
+    
     var body: some Scene {
         WindowGroup {
             
             TabView{
                 
-                ContentView()
+                ContentView(lostItems: $lostItems)
                     .tabItem{
                         Image(systemName: "questionmark.circle.fill")
                         Text("Lost")
@@ -28,11 +30,7 @@ struct LostAndFoundApp: App {
                         Image(systemName: "exclamationmark.circle.fill")
                         Text("Found")
                     }
-                PersonalView()
-                    .tabItem{
-                        Image(systemName: "house.fill")
-                        Text("Personal")
-                    }
+                
                 
             }
         }
