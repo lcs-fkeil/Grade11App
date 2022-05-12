@@ -8,6 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: Stored properties
+    
+    
+    
+    
+    
+    
+    
     var body: some View {
         NavigationView{
         List{
