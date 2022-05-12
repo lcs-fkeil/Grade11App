@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct LostAndFoundApp: App {
+    
+    
+    @State var items: [Item] = exampleItems
+    
     var body: some Scene {
         WindowGroup {
             
@@ -19,7 +23,7 @@ struct LostAndFoundApp: App {
                         Image(systemName: "questionmark.circle.fill")
                         Text("Lost")
                     }
-                FoundView()
+                FoundView(items: $items)
                     .tabItem{
                         Image(systemName: "exclamationmark.circle.fill")
                         Text("Found")

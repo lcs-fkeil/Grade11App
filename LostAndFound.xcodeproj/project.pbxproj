@@ -96,12 +96,12 @@
 		62A96AE4275560E600ECA44D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				62634D2F282C16A800499EE8 /* Helpers */,
 				62106660282AA42A004E6C78 /* FoundView.swift */,
 				621E1D9B282B6E6D00590A80 /* FillInFoundView.swift */,
 				62A96AD7275560AC00ECA44D /* ContentView.swift */,
 				621A6C1F27556B850096487C /* FillInView.swift */,
 				621E1D9F282B70EA00590A80 /* PersonalView.swift */,
+				62634D2F282C16A800499EE8 /* Helpers */,
 			);
 			path = Views;
 			sourceTree = "<group>";

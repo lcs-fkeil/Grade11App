@@ -9,18 +9,22 @@ import SwiftUI
 
 struct FoundView: View {
     
+    @Binding var items: [Item]
+    
     @State var isAddItemShowing = false
     
     
     
     var body: some View {
         NavigationView{
+            
+            
+            List(items) { currentItem in
+                Text(currentItem.title)
+                
+            }
         
         List{
-            
-            NavigationLink(destination: FillInFoundView()) {
-                Text("+ New")
-            }
             
             Section(header: Text("Items")) {
                 Text("Airpods - 10/05/2022")
@@ -49,7 +53,8 @@ struct FoundView: View {
             }
         
         .sheet(isPresented: $isAddItemShowing) {
-            FillInFoundView()
+            FillInFoundView(items: $items,
+                            isAddItemShowing: $isAddItemShowing)
         }
         
         }
@@ -64,7 +69,7 @@ struct FoundView: View {
 struct FoundView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            FoundView()
+            FoundView(items: .constant(exampleItems))
         }
     }
 }

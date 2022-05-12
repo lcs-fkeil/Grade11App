@@ -11,23 +11,32 @@ struct FillInFoundView: View {
     
     @State var dateFound = Date.now
     
+    @Binding var items: [Item]
+    
+    @Binding var isAddItemShowing: Bool
+    
+    @State var newItemTitle = ""
+    
+    @State var newItemDate = Date.now
+    
+    @State var newItemNotes = ""
     
     
     var body: some View {
         ScrollView{
             
             
-            TextField("Title",
-                      text: .constant(""),
-                      prompt: Text("Title"))
+            TextField("Enter a Title",
+                      text: $newItemTitle,
+                      prompt: Text("Enter a Title"))
                 .padding()
             
             HStack{
-                            Text("Date and time the Object was found")
-                                .padding(.horizontal)
-                            Spacer()
-                        }
-
+                Text("Date and time the Object was found")
+                    .padding(.horizontal)
+                Spacer()
+            }
+            
             DatePicker("please enter a date", selection: $dateFound)
                 .labelsHidden()
             
@@ -57,6 +66,20 @@ struct FillInFoundView: View {
             
         }
         .navigationTitle("New found item")
+        .toolbar{
+            ToolbarItem(placement: .confirmationAction) {
+                
+                Button(action: {
+                    
+                    isAddItemShowing = false
+                    
+                    
+                }, label: {
+                    Text("Add")
+            })
+            
+            }
+        }
         
     }
 }
@@ -65,7 +88,8 @@ struct FillInFoundView: View {
 struct FillInFoundView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            FillInFoundView()
+            FillInFoundView(items: .constant(exampleItems),
+                            isAddItemShowing: .constant(true))
         }
     }
 }

@@ -26,7 +26,7 @@ struct Item : Identifiable {
 
 let exampleItem = Item(id: 1, title: "Necklace", date: Date(), notes: "golden necklace with a butterfly")
 
-let items = [
+let exampleItems = [
 
 Item(id: 1, title: "Necklace", date: Date(), notes: "golden necklace with a butterfly")
 
