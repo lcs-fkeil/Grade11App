@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  LostDetailView.swift
 //  LostAndFound
 //
 //  Created by Franka Keil on 2022-05-12.
@@ -7,25 +7,24 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct LostDetailView: View {
     
-    let details: Item
+    let details2: LostItem
     
     
-    
-    var formattedDateAndTimeFound: String{
+    var formattedDateAndTimeLost: String{
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
         
-        return formatter.string(from: details.date)
+        return formatter.string(from: details2.date2)
     }
     
     var body: some View {
         
         
         HStack {
-            Text(details.title)
+            Text(details2.title2)
                 .font(Font.title)
                 .padding()
             
@@ -33,7 +32,7 @@ struct DetailView: View {
         }
         
         HStack {
-            Text(formattedDateAndTimeFound)
+            Text(formattedDateAndTimeLost)
                 .padding()
             
             Spacer()
@@ -45,8 +44,9 @@ struct DetailView: View {
             
             Spacer()
         }
+        
         HStack {
-            Text(details.notes)
+            Text(details2.notes2)
                 .font(Font.body)
                 .padding()
             
@@ -57,13 +57,12 @@ struct DetailView: View {
         
         
         
+        
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
+struct LostDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            DetailView(details: exampleItems.first!)
-        }
+        LostDetailView(details2: exampleLostItems.first!)
     }
 }

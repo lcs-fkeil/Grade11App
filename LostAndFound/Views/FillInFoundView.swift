@@ -85,8 +85,8 @@ struct FillInFoundView: View {
                         
                     }, label: {
                         Text("Add")
-                })
-                
+                    })
+                    
                 }
             }
         }

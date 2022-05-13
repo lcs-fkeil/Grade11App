@@ -13,44 +13,70 @@ struct ContentView: View {
     
     @Binding var lostItems: [LostItem]
     
+    @State var lostSearchText = ""
+    
     @State var isAddLostItemShowing = false
     
     
+    // MARK: Computed properties
     
+    var filteredListOfLostItems: [LostItem] {
+        
+        if lostSearchText.isEmpty{
+            return lostItems
+        } else {
+            return lostItems
+                .filter { currentItem in
+                    
+                    return
+                    currentItem.title2
+                        .lowercased().contains(lostSearchText.lowercased())
+                    
+                }
+        }
+    }
     
     
     var body: some View {
         NavigationView{
-        
-            List(lostItems) {
-                currentItem in
+            
+            List(filteredListOfLostItems) { currentItem in
                 
-                Text(currentItem.title2)
+                NavigationLink(destination: {
+                    
+                    LostDetailView(details2: currentItem)
+                    
+                }, label: {
+                    
+                    Text(currentItem.title2)
+                    
+                })
+                
+            }
+            .searchable(text: $lostSearchText)
+            .navigationTitle("Lost items")
+            .toolbar {
+                
+                Button(action: {
+                    
+                    isAddLostItemShowing = true
+                    
+                }, label: {
+                    
+                    Text("Add new Item")
+                    
+                })
+            }
+            .sheet(isPresented:
+                    $isAddLostItemShowing) {
+                FillInView(lostItems: $lostItems, isAddLostItemShowing: $isAddLostItemShowing)
+            }
             
             
-        }
-        .navigationTitle("Lost items")
-        .toolbar {
-            
-            Button(action: {
-                
-                isAddLostItemShowing = true
-            }, label: {
-                
-                Text("Add new Item")
-                
-            })
-        }
-        .sheet(isPresented:
-                $isAddLostItemShowing) {
-            FillInView(lostItems: $lostItems, isAddLostItemShowing: $isAddLostItemShowing)
         }
         
     }
-    }
-
 }
-
 
 
 

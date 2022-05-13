@@ -49,7 +49,7 @@ struct FoundView: View {
                     Text(currentItem.title)
                     
                 })
-                    
+                
             }
             .searchable(text: $searchText)
             .navigationTitle("Found items")
@@ -66,9 +66,7 @@ struct FoundView: View {
                     
                 })
                 
-                
             }
-        
             .sheet(isPresented: $isAddItemShowing) {
                 FillInFoundView(items: $items,
                                 isAddItemShowing: $isAddItemShowing)

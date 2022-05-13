@@ -24,8 +24,8 @@ struct LostItem: Identifiable {
 let exampleLostItem = LostItem(id: 1, title2: "charger", date2: Date(), notes2: "white laptop charger")
 
 let exampleLostItems = [
-
+    
     LostItem(id: 1, title2: "Charger", date2: Date(), notes2: "White laptop Charger")
     
-
+    
 ]
